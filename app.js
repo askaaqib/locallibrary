@@ -13,13 +13,13 @@ var catalog = require('./routes/catalog');  //Import routes for "catalog" area o
 var app = express();
 
 
-//Set up default mongoose connection
-var mongoDB = 'mongodb://127.0.0.1/my_database';
+var mongoose = require('mongoose');
+var dev_db_url = 'mongodb://admin:admin@ds159507.mlab.com:59507/local_library'
+var mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB);
-// Get Mongoose to use the global promise library
 mongoose.Promise = global.Promise;
-//Get the default connection
 var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 //Bind connection to error event (to get notification of connection errors)
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
