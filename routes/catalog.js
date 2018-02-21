@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-// Require controller modules.
+// require Controller module
 var book_controller = require('../controllers/bookController');
 var author_controller = require('../controllers/authorController');
 var genre_controller = require('../controllers/genreController');
@@ -9,7 +9,7 @@ var book_instance_controller = require('../controllers/bookinstanceController');
 
 /// BOOK ROUTES ///
 
-// GET catalog home page.
+// get catalog home page.
 router.get('/', book_controller.index);
 
 // GET request for creating a Book. NOTE This must come before routes that display Book (uses id).
@@ -43,9 +43,6 @@ router.get('/author/create', author_controller.author_create_get);
 
 // POST request for creating Author.
 router.post('/author/create', author_controller.author_create_post);
-
-// GET request to delete Author.
-router.get('/author/:id/delete', author_controller.author_delete_get);
 
 // POST request to delete Author.
 router.post('/author/:id/delete', author_controller.author_delete_post);
