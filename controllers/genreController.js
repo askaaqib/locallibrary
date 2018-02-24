@@ -4,7 +4,7 @@ var async = require('async');
 var mongoose = require('mongoose');
 
 // Display list of all Genre.
-exports.genre_list = function (req, res) {
+exports.genre_list = function (req, res, next) {
     Genre.find({},'name')
     .exec(function(err, list_genre){
         if(err) {return next(err);}
