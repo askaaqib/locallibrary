@@ -44,7 +44,10 @@ router.get('/author/create', author_controller.author_create_get);
 // POST request for creating Author.
 router.post('/author/create', author_controller.author_create_post);
 
-// POST request to delete Author.
+// GET request to delete Author.
+router.get('/author/:id/delete', author_controller.author_delete_get);
+
+// POST request to delete Author
 router.post('/author/:id/delete', author_controller.author_delete_post);
 
 // GET request to update Author.
